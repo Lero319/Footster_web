@@ -1,0 +1,1 @@
+web: gunicorn Footster_web:app
