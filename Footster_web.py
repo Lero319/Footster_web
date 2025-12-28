@@ -3,7 +3,7 @@ import csv
 
 spieler_liste = []
 
-with open("Spieler.cvs", "r", encoding="utf-8") as f:
+with open("Spieler.csv", "r", encoding="utf-8") as f:
     reader = csv.DictReader(f)
     for row in reader:
         row["vereine"] = row["vereine"].split(";")
@@ -147,4 +147,5 @@ def spiel_starten():
     return html
 
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000)
