@@ -1,6 +1,8 @@
-from flask import Flask, render_template_string
+from flask import Flask, request
 import csv
+import random
 
+# --- Daten laden ---
 spieler_liste = []
 
 with open("Spieler.csv", "r", encoding="utf-8") as f:
@@ -8,12 +10,10 @@ with open("Spieler.csv", "r", encoding="utf-8") as f:
     for row in reader:
         row["vereine"] = row["vereine"].split(";")
         spieler_liste.append(row)
-import random
-from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
 
-# --- HTML Templates ---
+# --- Globales CSS ---
 style = """
 <style>
     body {
@@ -30,17 +30,11 @@ style = """
         text-align: center;
     }
 
-    h2 {
-        font-size: 900px;
-        margin-top: 30px;
-    }
-
     p {
         font-size: 45px;
         line-height: 1.6;
         margin-bottom: 20px;
     }
-    
 
     .btn {
         background-color: #1C9FD7;
@@ -93,7 +87,6 @@ def home():
 @app.route("/neue_runde")
 def neue_runde():
     spieler = random.choice(spieler_liste)
-
     name = spieler["name"]
 
     html = f"""
@@ -134,9 +127,10 @@ def spiel_starten():
         <h1>📢 Auflösung</h1>
 
         <div class="card">
-            <p><b>👉 Sag den Spielern NUR den Namen!</b></p><br>
-            <h2 style="font-size: 55px; margin-top: 20px;">➡️ {name}</h2>
-            <p>Wenn alle den Namen gesehen haben, drücke <b>Spiel starten</b>.</p>
+            <p><b>Name:</b> {name}</p>
+            <p><b>Nation:</b> {nation}</p>
+            <p><b>Position:</b> {position}</p>
+            <p><b>Vereine:</b><br>{vereine}</p>
         </div>
 
         <a href="/" class="btn">Neue Runde</a>
@@ -146,5 +140,4 @@ def spiel_starten():
     return html
 
 if __name__ == "__main__":
-
     app.run(host="0.0.0.0", port=5000)
