@@ -31,12 +31,12 @@ style = """
     }
 
     h2 {
-        font-size: 60px;
+        font-size: 900px;
         margin-top: 30px;
     }
 
     p {
-        font-size: 50px;
+        font-size: 45px;
         line-height: 1.6;
         margin-bottom: 20px;
     }
@@ -148,6 +148,3 @@ def spiel_starten():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000)
-
-
-
