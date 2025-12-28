@@ -103,7 +103,7 @@ def neue_runde():
         <h1>🎤 HOST-MODUS</h1>
 
         <div class="card">
-            <p><b>👉 Sag den Spielern NUR den Namen!</b></p> <br>
+            <p><b>👉 Sag den Spielern NUR den Namen!</b></p><br>
             <h2 style="font-size: 55px; margin-top: 20px;">➡️ {name}</h2>
             <p>Wenn alle den Namen gesehen haben, drücke <b>Spiel starten</b>.</p>
         </div>
@@ -148,5 +148,6 @@ def spiel_starten():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000)
+
 
 
