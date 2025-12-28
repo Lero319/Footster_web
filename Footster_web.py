@@ -134,10 +134,9 @@ def spiel_starten():
         <h1>📢 Auflösung</h1>
 
         <div class="card">
-            <p><b>Name:</b> {name}</p>
-            <p><b>Nationalität:</b> {nation}</p>
-            <p><b>Position:</b> {position}</p>
-            <p><b>Vereine:</b><br>{vereine}</p>
+            <p><b>👉 Sag den Spielern NUR den Namen!</b></p><br>
+            <h2 style="font-size: 55px; margin-top: 20px;">➡️ {name}</h2>
+            <p>Wenn alle den Namen gesehen haben, drücke <b>Spiel starten</b>.</p>
         </div>
 
         <a href="/" class="btn">Neue Runde</a>
@@ -149,3 +148,4 @@ def spiel_starten():
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=5000)
+
